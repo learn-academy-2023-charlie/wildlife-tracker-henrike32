@@ -1,8 +1,15 @@
+# Rails.application.routes.draw do
+#   resources :sightings
+#   resources :animals
+
+#   root to: "animals#index"
+# end
+
 Rails.application.routes.draw do
   resources :sightings
   resources :animals
 
-## ANIMALS ##
+# ## ANIMALS ##
 
 root to: "animals#index"
 # index
@@ -19,8 +26,9 @@ put '/animals/:id' => 'animals#update'
 delete '/animals/:id' => 'animals#destroy'
 
 ##  SIGHTINGS  ##
-# Root
-get  "sighting#index"
+
+get '/sightings' =>  "sighting#index"
+
 # index
 get '/sightings' => 'sightings#index'
 # create

@@ -1,48 +1,48 @@
 class SightingsController < ApplicationController
 
     def index
-        sighting = Sighting.all
-        render json:animal
+        sightings = Sighting.all
+        render json:sightings
     end
 
     def show
-        sighting = Sighting.find(params[:id])
-        render json:sighting
+        sightings = Sighting.find(params[:id])
+        render json:sightings
     end
 
     def create
-        sighting = Sighting.create(sighting_params)
+        sightings = Sighting.create(sighting_params)
         if sighting.valid?
-            render json:sighting
+            render json:sightings
         else
             render json:sighting.errors
         end
     end
 
     def update
-        sighting = Sighting.find(params[:id])
-        sighting.update(sighting_params)
-        if sighting.valid?
-            render json:sighting
+        sightings = Sighting.find(params[:id])
+        sightings.update(sighting_params)
+        if sightings.valid?
+            render json:sightings
         else
             render json:sighting.errors
         end
     end
 
     def destroy
-        sighting = Sighting.find(params[:id])
-        sighting.destroy
-        if sighting.destroy
-            render json:sighting
+        sightings = Sighting.find(params[:id])
+        sightings.destroy
+        if sightings.destroy
+            render json:sightings
         else
-            render json: sighting.errors
+            render json: sightings.errors
         end
     end
 
 
     private
-    def sighting_params
-        params.require(:sighting).permit( :animal_id,:latitude,:longitude,:sight_date )
+    def sightings_params
+        params.require(:sightings).permit( :animal_id,:latitude,:longitude,:sight_date )
     end
 
 end
